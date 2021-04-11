@@ -1,4 +1,4 @@
-// All GAS and no breakes @ Play by Play 2021
+// All GAS and no brakes @ Play by Play 2021
 //
 // Defines input game bind constants
 #include "UObject/NameTypes.h"
