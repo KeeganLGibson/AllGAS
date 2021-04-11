@@ -11,6 +11,8 @@
 #include "GameFramework/SpringArmComponent.h"
 
 #include "AGInput.h"
+#include "AGBaseAttributeSet.h"
+#include "AGPlayerState.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AAllGASCharacter
@@ -55,6 +57,11 @@ void AAllGASCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	PlayerInputComponent->BindAxis(GBA::TurnRate, this, &AAllGASCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis(GBA::LookUp, this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis(GBA::LookUpRate, this, &AAllGASCharacter::LookUpAtRate);
+}
+
+class UAbilitySystemComponent* AAllGASCharacter::GetAbilitySystemComponent() const
+{
+	return GetPlayerState<AAGPlayerState>()->GetAbilitySystemComponent();
 }
 
 void AAllGASCharacter::TurnAtRate(float Rate)

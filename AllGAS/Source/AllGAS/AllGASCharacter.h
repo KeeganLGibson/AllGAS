@@ -4,10 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+
+#include "AbilitySystemInterface.h"
+
 #include "AllGASCharacter.generated.h"
 
 UCLASS(config=Game)
-class AAllGASCharacter : public ACharacter
+class AAllGASCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 public:
@@ -23,8 +26,9 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
 
-	/** Resets HMD orientation in VR. */
-	void OnResetVR();
+	// IAbilitySystemInterface
+	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const;
+	// End of IAbilitySystemInterface
 
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
@@ -43,12 +47,6 @@ protected:
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void LookUpAtRate(float Rate);
-
-	/** Handler for when a touch input begins. */
-	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
-
-	/** Handler for when a touch input stops. */
-	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
 protected:
 	/** Camera boom positioning the camera behind the character */
