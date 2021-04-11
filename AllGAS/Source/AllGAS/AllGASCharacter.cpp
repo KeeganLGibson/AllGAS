@@ -1,13 +1,16 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "AllGASCharacter.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
+
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
+
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+
+#include "AGInput.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AAllGASCharacter
@@ -39,19 +42,19 @@ void AAllGASCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 {
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction(GBA::Jump, IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction(GBA::Jump, IE_Released, this, &ACharacter::StopJumping);
 
-	PlayerInputComponent->BindAxis("MoveForward", this, &AAllGASCharacter::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &AAllGASCharacter::MoveRight);
+	PlayerInputComponent->BindAxis(GBA::MoveForward, this, &AAllGASCharacter::MoveForward);
+	PlayerInputComponent->BindAxis(GBA::MoveRight, this, &AAllGASCharacter::MoveRight);
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
-	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("TurnRate", this, &AAllGASCharacter::TurnAtRate);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
-	PlayerInputComponent->BindAxis("LookUpRate", this, &AAllGASCharacter::LookUpAtRate);
+	PlayerInputComponent->BindAxis(GBA::Turn, this, &APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis(GBA::TurnRate, this, &AAllGASCharacter::TurnAtRate);
+	PlayerInputComponent->BindAxis(GBA::LookUp, this, &APawn::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis(GBA::LookUpRate, this, &AAllGASCharacter::LookUpAtRate);
 }
 
 void AAllGASCharacter::TurnAtRate(float Rate)
