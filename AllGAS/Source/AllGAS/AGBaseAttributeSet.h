@@ -32,7 +32,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
 	FGameplayAttributeData Health;
 
+	/** This this the total amount of health the character can have. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
+	FGameplayAttributeData MaxHealth;
+
 	/** This measures how many abilities can be activated. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
 	FGameplayAttributeData Mana;
+
+	/** This is the max amount of mana a character can have. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
+	FGameplayAttributeData MaxMana;
 };
