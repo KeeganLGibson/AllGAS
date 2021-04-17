@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "AGBaseCharacter.h"
 
 #include "AbilitySystemInterface.h"
 
 #include "AllGASCharacter.generated.h"
 
 UCLASS(config=Game)
-class AAllGASCharacter : public ACharacter, public IAbilitySystemInterface
+class AAllGASCharacter : public AAGBaseCharacter
 {
 	GENERATED_BODY()
 public:
@@ -27,7 +27,7 @@ protected:
 	// End of APawn interface
 
 	// IAbilitySystemInterface
-	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const;
+	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	// End of IAbilitySystemInterface
 
 	/** Called for forwards/backward input */
