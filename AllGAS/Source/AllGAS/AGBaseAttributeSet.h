@@ -8,6 +8,7 @@
 
 // Library Includes
 #include "AttributeSet.h"
+#include "AbilitySystemComponent.h"
 
 // Local Includes
 
