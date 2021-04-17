@@ -1,6 +1,6 @@
 //	All GAS and no brakes @ Play by Play 2021
 //
-//  File Name   :   AGBaseAttributeSet.cpp
+//  File Name   :   AGBaseAttributeSet.h
 //  Description :   Base attriubute set for characters in All GAS and no brakes
 //
 
@@ -19,6 +19,7 @@
 // Constants
 
 // Prototypes
+
 UCLASS()
 class UAGBaseAttributeSet : public UAttributeSet
 {
@@ -30,4 +31,8 @@ public:
 	/** This measures how much damage can be absorbed before dying. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
 	FGameplayAttributeData Health;
+
+	/** This measures how many abilities can be activated. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attributes")
+	FGameplayAttributeData Mana;
 };

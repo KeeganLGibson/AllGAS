@@ -20,4 +20,5 @@
 UAGBaseAttributeSet::UAGBaseAttributeSet()
 {
 	Health = 500.0f;
+	Mana = 500.0f;
 }
