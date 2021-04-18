@@ -48,6 +48,13 @@ void AAllGASCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	PlayerInputComponent->BindAxis(GBA::LookUpRate, this, &AAllGASCharacter::LookUpAtRate);
 }
 
+void AAllGASCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	GetPlayerState<AAGPlayerState>()->GetAbilitySystemComponent()->SetAvatarActor(this);
+}
+
 class UAbilitySystemComponent* AAllGASCharacter::GetAbilitySystemComponent() const
 {
 	return GetPlayerState<AAGPlayerState>()->GetAbilitySystemComponent();

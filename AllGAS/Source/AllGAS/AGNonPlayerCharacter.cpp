@@ -23,6 +23,8 @@ AAGNonPlayerCharacter::AAGNonPlayerCharacter()
 {
 	AbilitySystem = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystem"));
 	AttributeSet = CreateDefaultSubobject<UAGBaseAttributeSet>(TEXT("AttributeSet"));
+
+	AbilitySystem->SetAvatarActor(this);
 }
 
 UAbilitySystemComponent* AAGNonPlayerCharacter::GetAbilitySystemComponent() const
