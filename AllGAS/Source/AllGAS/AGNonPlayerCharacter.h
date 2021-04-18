@@ -30,6 +30,10 @@ class AAGNonPlayerCharacter : public AAGBaseCharacter
 public:
 	AAGNonPlayerCharacter();
 
+	// AActor Interface
+	virtual void BeginPlay() override;
+	// End of Actor Interface
+
 	// IAbilitySystemInterface
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	// End of IAbilitySystemInterface
