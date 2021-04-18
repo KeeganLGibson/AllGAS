@@ -35,8 +35,6 @@ void AAllGASCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 {
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction(GBA::Jump, IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction(GBA::Jump, IE_Released, this, &ACharacter::StopJumping);
 
 	PlayerInputComponent->BindAxis(GBA::MoveForward, this, &AAllGASCharacter::MoveForward);
 	PlayerInputComponent->BindAxis(GBA::MoveRight, this, &AAllGASCharacter::MoveRight);
