@@ -16,10 +16,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "Paper2D",
-			"Enabled": false
-		},
-		{
 			"Name": "AudioCapture",
 			"Enabled": false
 		},
